@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      styleClass="root"
+      stylesheets="@../css/styles.css">
+    
+    <!-- Top Menu Bar -->
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT" fx:id="searchControls">
+                <Button fx:id="backToSearchButton" text="← Back to Search" onAction="#handleBackToSearch" visible="false"/>
+                <Button text="Watchlist" onAction="#handleShowWatchlist"/>
+                <Button text="Statistics" onAction="#handleShowStatistics"/>
+            </HBox>
+            
+            <Label fx:id="statusLabel" styleClass="status-label"/>
+        </VBox>
+    </top>
+    
+    <!-- Main Content Area -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <ListView fx:id="movieListView" styleClass="movie-list" VBox.vgrow="ALWAYS"/>
+        </StackPane>
+    </center>
+    
+    <!-- Status Bar -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="status-bar">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10"/>
+            </padding>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Watchlist" onAction="#handleShowWatchlist" styleClass="menu-button"/>
+            <Button text="Statistics" onAction="#handleShowStatistics" styleClass="menu-button"/>
+            <Button text="About" onAction="#handleAbout" styleClass="menu-button"/>
+            <Button text="Exit" onAction="#handleExit" styleClass="menu-button"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane> 
